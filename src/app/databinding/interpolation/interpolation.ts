@@ -2,6 +2,14 @@ import { Component } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+export interface User{
+  name?: string | undefined;
+  position?: string;
+  department?: string;
+    details?:{
+      role: string | undefined;
+    }
+}
 
 @Component({
   selector: 'app-interpolation',
@@ -32,6 +40,26 @@ export class Interpolation {
     details: {role: 'Admin'}
   };
 
+  countries = [
+    { id: 'PH', name: 'Philippines' },
+    { id: 'US', name: 'United States' },
+    { id: 'JP', name: 'Japan' }
+  ];
+  selectedCountryId = 'PH'; // Initial value
   
+  
+    // Array of strings
+    skills = ['Angular', 'TypeScript', 'RxJS'];
+  
+    // Array of objects
+    projects = [
+      { id: 1, name: 'Dashboard' },
+      { id: 2, name: 'Mobile App' }
+    ];
+  
+    // Interpolation can call methods too
+    getWelcomeMessage(): string {
+      return `Welcome, ${this.studentName}! Today we learn data binding.`;
+    }
 }
   
