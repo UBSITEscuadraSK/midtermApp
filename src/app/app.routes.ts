@@ -8,6 +8,8 @@ import { Home } from './Component/home/home';
 import { EventBinding } from './databinding/event-binding/event-binding';
 import { TwoWay } from './databinding/two-way/two-way';
 import { Products } from './Component/products/products';
+import { ProductList } from './Component/products/product-list/product-list';
+import { ProductDetails } from './Component/products/product-details/product-details';
 
 
 export const routes: Routes = [
@@ -20,5 +22,18 @@ export const routes: Routes = [
     {path: 'class', component: Class},
     {path: 'style', component: Style},
     {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: 'products', component: Products}
+    {path: 'products', component: Products},
+
+    {path: 'prod-list',
+    component: ProductList,
+    children: [
+        {
+            path: ':id',
+            children:[
+                {path: 'product-details', component: ProductDetails}
+            ]
+        }
+    ]
+
+}
 ];
