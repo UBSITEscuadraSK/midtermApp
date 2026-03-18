@@ -10,6 +10,9 @@ import { TwoWay } from './databinding/two-way/two-way';
 import { Products } from './Component/products/products';
 import { ProductList } from './Component/products/product-list/product-list';
 import { ProductDetails } from './Component/products/product-details/product-details';
+import { SupplierServices } from './Component/products/service/supplier-services';
+import { SupplierDetails } from './Component/products/supplier-details/supplier-details';
+import { SupplierList } from './Component/products/supplier-list/supplier-list';
 
 
 export const routes: Routes = [
@@ -23,17 +26,7 @@ export const routes: Routes = [
     {path: 'style', component: Style},
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'products', component: Products},
+    {path: 'supplier', component: SupplierList},
+    {path: 'supplier/:id', component: SupplierDetails}
 
-    {path: 'prod-list',
-    component: ProductList,
-    children: [
-        {
-            path: ':id',
-            children:[
-                {path: 'product-details', component: ProductDetails}
-            ]
-        }
-    ]
-
-}
 ];
